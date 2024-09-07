@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
     font-family: 'poppins', sans-serif;
 }
 
@@ -60,13 +61,16 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     padding: 70px 10% 0;
 }
 
 .home-content {
     max-width: 600px;
+    grid-column: 1;
+    text-align: left;
 }
 
 .home-content h3 {
@@ -149,62 +153,105 @@ body {
         0 0 25px cyan, 0 0 50px cyan,
         0 0 100px cyan, 0 0 200px cyan;
 }
-.about{
+
+.profile-picture{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    background: transparent;
+}
+
+.profile-picture img{
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    border: 1px solid #0ef;
+    object-fit: cover ;
+    object-position: top;
+    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+}
+
+@media screen and (max-width: 768px) {
+    .home {
+        grid-template-columns: 1fr; 
+    }
+
+    .profile-picture {
+        margin-top: 30px; 
+    }
+}
+
+.about {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: start;
     gap: 1.5rem;
 }
-.about-img img{
+
+.about-img img {
     padding-bottom: 20%;
     max-width: 600px;
     height: auto;
     width: 100%;
     border-radius: 8px;
 }
-.about-text h2{
+
+.about-text h2 {
     font-size: 60px;
+    margin-top: 150px;
 }
-.about-text h2 span{
+
+.about-text h2 span {
     color: #0ef;
 }
-.about-text h4{
+
+.about-text h4 {
     font-size: 29px;
     font-weight: 600;
     color: #fff;
     line-height: 1.7;
     margin: 15px 0 30px;
 }
-.about-text p{
+
+.about-text p {
     color: aliceblue;
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
 }
-.services{
+
+.services {
     color: aliceblue;
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
 }
-.sub-title{
+
+.sub-title {
     text-align: center;
     font-size: 60px;
     padding-bottom: 70px;
 }
-.sub-title span{
+
+.sub-title span {
     color: #0ef;
 }
-.container{
+
+.container {
     padding: 90px;
 }
-.services-list{
+
+.services-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
 }
-.services-list div{
+
+.services-list div {
     background-color: transparent;
     padding: 40px;
     font-size: 13px;
@@ -214,23 +261,27 @@ body {
     transition: background 0.5s, transform 0.5s;
     box-shadow: 1px 1px 20px #012290f7, 1px 1px 40px #0053b8f7;
 }
-.services-list div i{
+
+.services-list div i {
     font-size: 50px;
     margin-bottom: 30px;
 }
-.services-list div h2{
+
+.services-list div h2 {
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 15px;
 }
-.services-list div a{
+
+.services-list div a {
     text-decoration: none;
     color: #000000;
     font-size: 12px;
     margin-top: 20px;
     display: inline-block;
 }
-.read{
+
+.read {
     display: inline-block;
     padding: 12px 28px;
     background: #0ef;
@@ -245,26 +296,30 @@ body {
     animation-delay: 2s;
     box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
 }
-.read:hover{
+
+.read:hover {
     box-shadow: 0 0 5px cyan,
         0 0 25px cyan, 0 0 50px cyan,
         0 0 100px cyan, 0 0 200px cyan;
 }
-.services-list div:hover{
+
+.services-list div:hover {
     transform: translateY(-10px);
 }
 
-section{
+section {
     display: flex;
     flex-wrap: wrap;
 }
-.container1{
+
+.container1 {
     width: 600px;
     height: 500px;
     padding: 75px 90px;
     margin-left: 120px;
 }
-.heading1{
+
+.heading1 {
     text-align: center;
     text-decoration: underline;
     text-underline-offset: 10px;
@@ -272,126 +327,266 @@ section{
     margin-bottom: 50px;
 }
 .bar{
-    font-size: 23px;
-}
-.Technical-bars .bar{
-    margin-top: 40px 0;
-}
-.Technical-bars .bar:first-child{
-    margin-top: 0;
-}
-.Technical-bars .bar:last-child{
-    margin-bottom: 0;
-}
-.Technical-bars .bar .info{
-    margin-bottom: 5px;
-}
-.Technical-bars .bar .info span{
-    font-size: 17px;
-    font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
-}
-.Technical-bars .bar .progress-line{
-    position: relative;
-    border-radius: 10px;
-    width: 100%;
-    height: 5px;
-    background-color: #000;
-    animation: animate 1s cubic-bezier(1,0,0,1) forwards;
-    transform-origin: left;
+    margin: 20px 0;
 }
 
-@keyframes animate{
+.bar .skill-box{
+    width: 100%;
+    margin: 5px 0;
+}
+
+.skill-box .title{
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+.skill-box .skill-bar{
+    height: 8px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: rgba(0,0,0,0.1);
+}
+.skill-bar .skill-per{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 90%;
+    border-radius: 6px;
+    background: #0ef;
+    animation: progress 0.4s ease-in-out forwards;
+    opacity: 0;
+}
+.skill-per.html{
+    width: 90%;
+    animation-delay: 1s;
+}
+.skill-per.css{
+    width: 70%;
+    animation-delay: 1s;
+}
+.skill-per.javascript{
+    width: 85%;
+    animation-delay: 1s;
+}
+.skill-per.flutter{
+    width: 95%;
+    animation-delay: 1s;
+}
+.skill-per.react{
+    width: 60%;
+    animation-delay: 1s;
+}
+.skill-per.python{
+    width: 50%;
+    animation-delay: 1s;
+}
+
+@keyframes progress {
     0%{
-        transform: scaleX(0);
+        width: 0;
+        opacity: 1;
     }
     100%{
-        transform: scaleX(1);
+        opacity: 1;
     }
 }
-
-.Technical-bars .bar .progress-line span{
-    height: 100%;
-    background-color: #0ef;
+.skill-per .tooltip{
     position: absolute;
-    border-radius: 10px;
-    animation: animate 1s 1s cubic-bezier(1,0,0,1) forwards;
-    transform-origin: left;
-}
-.progress-line.html span{
-    width: 90%;
-}
-.progress-line.css span{
-    width: 80%;
-}
-.progress-line.javascript span{
-    width: 75%;
-}
-.progress-line.flutter span{
-    width: 60%;
-}
-.progress-line.react span{
-    width: 50%;
-}
-.progress-line.python span{
-    width: 90%;
-}
-.progress-line span::after {
-    position: absolute;
-    padding: 1px 8px;
-    background-color: #000;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 3px;
+    right: -14px;
     top: -28px;
-    right: 0;
-    animation: showTest 0.5s 1.5s linear forwards;
-    opacity: 1;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: #000000;
+    z-index: 1;
 }
-
-.progress-line.html::after { content: "90%"; }
-.progress-line.css::after { content: "80%"; }
-.progress-line.javascript::after { content: "75%"; }
-.progress-line.flutter::after { content: "60%"; }
-.progress-line.react::after { content: "50%"; }
-.progress-line.python::after { content: "90%"; }
-
-.progress-line span::before{
-    content: "";
+.tooltip::before{
+    content: '';
     position: absolute;
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-bottom-width: 0px;
-    border-right-width: 0px;
-    border-top-color: #000;
-    top: -10px;
-    right: 0;
-    animation: showTest 0.5s 1.5s linear forwards;
-    opacity: 0;
-}
-@keyframes showText{
-    0% {
-        transform: scaleX(0);
-    }
-    100% {
-        transform: scaleX(1);
-    }
+    left: 50%;
+    bottom: -2px;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+    background-color: #000000;
+    transform: translateX(-50%) rotate(45deg);
 }
 
-.radial-bars{
+.radial-bars {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
 }
-.radial-bars .radial-bar{
-    width: 50;
-    height: 170px;
-    margin-bottom: 10px;
+
+.circular-progress{
     position: relative;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    border-radius: 50%;
+    background: conic-gradient(transparent 3.6deg, #0ef 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circular-progress::before{
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color:  #081b29;
+}
+.progress-value{
+    position: absolute;
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+}
+.text{
+    /* position: relative;
+    text-align: bottom; */
+    width: 100%;
+    left: 50%;
+    right: -5px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+}
+.contact{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3rem;
+    padding-left: 30px;
+    margin-top: 250px;
+}
+.contact-text h2{
+    font-size: 90px;
+    line-height: 1;
+    text-align: center;
+}
+.contact-text h2 span{
+    color: #0ef;
+}
+.contact-text h4{
+    margin: 15px 0;
+    color: rgb(228, 228, 228);
+    font-size: 20px;
+    font-weight: 600;
+}
+.contact-text p{
+    color: rgb(177, 177, 177);
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 2rem;
+}
+.contact-list{
+    margin-bottom: 3rem;
+}
+.contact-list li{
+    margin-bottom: 10px;
+    display: block;
+}
+.contact-list i{
+    display: inline-block;
+    color: #0ef;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all .40s ease;
+}
+.contact-list li a:hover{
+    transform: scale(1.01) translateY(-5px);
+    color: #0ef;
+}
+.contact-icons i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s*var(--i));
+}
+.contact-icons i:hover{
+    background: #0ef;
+    color: #000;
+    box-shadow: 0 0 20px #0ef;
+}
+.contact-form form{
+    position: relative;
+}
+.contact-form form input, form textarea{
+    border: none;
+    outline: none;
+    width: 90%;
+    padding: 10px;
+    background: #555557;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+}
+.contact-form textarea{
+    resize: none;
+    height: 220px;
+}
+.contact-form form .send{
+    display: inline-block;
+    padding: 14px 60px;
+    background: #0ef;
+    border-radius: 40px;
+    font-size: 18px;
+    color: #081b29;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+}
+.contact-form form .send:hover {
+    box-shadow: 0 0 5px cyan,
+        0 0 25px cyan, 0 0 50px cyan,
+        0 0 100px cyan, 0 0 200px cyan;
+}
+.last-text p{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: rgb(7, 85, 91);
+    font-weight: 300;
+    margin-top: 70px;
+}
+.top{
+    position: fixed;
+    bottom: 2.1rem;
+    right: 2.1rem;
+}
+.top i{
+    color: #000;
+    background: #0ef;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 0.5rem;
 }
 
 @keyframes slideRight {
